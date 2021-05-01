@@ -1,0 +1,388 @@
+body {
+    font-family: 'helvetica', 'sans-serif';
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    line-height: 1.5;
+    font-weight: 300;
+    margin: 0.5em 0;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.4em;
+}
+
+h5 {
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+}
+
+p, label, strong {
+    line-height: 2;
+    font-size: 0.85em;
+    font-weight: 300;
+}
+
+.flex {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0px;
+    justify-content: space-between;
+}
+
+.badge {
+    padding: 9px 20px;
+    color: #eee;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.75em;
+}
+
+.badge.Waste {
+    background-color: #FF205F;
+}
+
+.badge.Recycle {
+    background-color: #4EAE60;
+}
+
+.badge.Awareness {
+    background-color: #694EAE;
+}
+
+.badge.Globally { 
+    background-color: grey;
+
+}
+
+.shade {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+} 
+/* Header styling */
+
+header {
+    background-color:#000033;
+    padding: 20px 0;
+    position: relative;
+    border-bottom: 1px solid #FFB320;
+}
+
+.menu {
+    background-color: transparent;
+    border: 1px solid #FFB320;
+    padding: 10px 5px;
+    width: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.menu .strip {
+    display: block;
+    height: 1px;
+    background-color: #FFB320;
+    margin: 4px 0;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+nav ul li {
+    display: inline-block;
+    font-size: 1em;
+    margin: 0 18px;
+}
+
+nav ul li a {
+    color: #eee;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: #FFB320;
+}
+
+#login-register-buttton {
+    background-color: #FFB320;
+    color: #131313;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 0.85em;
+    font-weight: 600;
+    height: fit-content;
+}
+
+#profile-button{
+    background-color: #FFB320;
+    color: #131313;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 0.85em;
+    font-weight: 600;
+    height: fit-content;
+
+}
+
+
+
+
+/* end: header styles */
+
+#low-visibility {
+    background: url('blur.jpg'), top center no-repeat;
+    height: 600px; } 
+
+    .low-visibility-text {
+        max-width: 1200px;
+        margin: -30px auto 0;
+        position: absolute;
+        top: 40%;
+        left: 0;
+        right: 0;
+        padding: 0 20px;
+    }
+    
+    .low-visibility-text h1 {
+        color: #eee;
+        font-size: 3.5em;
+        font-weight: 300;
+        margin: 0.5em 0;
+    }
+    
+    .low-visibility-text h5 {
+        color: #eee;
+        font-size: 0.85em;
+        font-weight: 300;
+        max-width: 500px;
+        line-height: 2;
+        margin-bottom: 2.5em;
+    }
+    
+    .low-visibility-text button {
+        background-color: #FFB320;
+        color: #131313;
+        border-radius: 25px;
+        padding: 15px 25px;
+        font-size: 0.85em;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+    }
+    /* start of game type*/
+
+    #types-boxes{
+        margin-bottom: 0px;
+    }
+    
+    #types-boxes .box {
+        flex-basis: 25%;
+        position: relative;
+        height: 380px;
+    }
+    
+    #types-boxes .box.Waste {
+        background: url('waste.jpg') top center no-repeat;
+        background-size: cover;
+    }
+    
+    #types-boxes .box.Recycle{
+        background: url('recycle.jpg') top center no-repeat;
+        background-size: cover;
+    }
+    
+    #types-boxes .box.Awareness{
+        background: url('awareness.jpg') top center no-repeat;
+        background-size: cover;
+    }
+    
+    #types-boxes .box.Globally{
+        background: url('globally.jpg') top center no-repeat;
+        background-size: cover;
+    }
+    #types-boxes .box .badge {
+        position: relative;
+        z-index: 2;
+        top: 20px;
+        left: 20px;
+    }
+    
+    #types-boxes .box .contents {
+        position: absolute;
+        z-index: 2;
+        bottom: 20px;
+        left: 0;
+        color: #eee;
+        padding: 0 35px 0 25px;
+    }
+    
+    #types-boxes .box .contents a {
+        background-color: #999;
+    color: #131313;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 0.85em;
+    font-weight: 600;
+    height: fit-content;
+}
+    
+
+    /* 2nd row*/
+    #type-boxes{
+        margin-bottom: 0px;
+    }
+    
+    #type-boxes .box {
+        flex-basis: 25%;
+        position: relative;
+        height: 380px;
+    }
+
+    #type-boxes .box.Pledges {
+        background: url('pledge.jpg') top center no-repeat;
+        background-size: cover;
+    }
+    
+    #type-boxes .box.Clean{
+        background: url('clean.jpg') top center no-repeat;
+        background-size: cover;
+    }
+    
+    #type-boxes .box.Members {
+        background: url('members.png') top center no-repeat;
+        background-size: cover;
+    }
+    
+    #type-boxes .box.City {
+        background: url('city.jpg') top center no-repeat;
+        background-size: cover;
+    }
+    #type-boxes .box .badge {
+        position: relative;
+        z-index: 2;
+        top: 20px;
+        left: 20px;
+    }
+    
+    #type-boxes .box .contents {
+        position: absolute;
+        z-index: 2;
+        bottom: 20px;
+        left: 0;
+        color: white;
+        padding: 0 35px 0 25px;
+    }
+    
+    #type-boxes .box .contents a {
+        background-color: white;
+        color: #131313;
+        border-radius: 20px;
+        padding: 10px 15px;
+        font-size: 0.85em;
+        font-weight: 600;
+        height: fit-content;
+    }
+    
+    #recent-reviews {
+        background-color: #aac5e0;
+        border-top: 1px solid #d6dee7;
+        border-bottom: 1px solid #d6dee7;
+        padding: 70px 0 120px;
+    }
+    
+    #recent-reviews h1 {
+        text-align: center;
+    }
+    
+    #recent-reviews .box {
+        position: relative;
+        flex-basis: 31%;
+        background-color: #fff;
+    }
+    
+    #recent-reviews .box .badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+    }
+    
+    #recent-reviews .box img {
+        width: 100%;
+    }
+    
+    #recent-reviews .box .box-lower-section {
+        padding: 20px;
+    }
+    
+    #recent-reviews .box .box-lower-section p {
+        color: #999;
+    }
+    
+    #recent-reviews .box .box-lower-section a {
+        color: #999;
+        font-size: 0.8em;
+    }
+    /* end: recent games styles */
+
+/* end: posts/comments styles */
+
+/* start: footer styles */
+footer {
+    background-color: #000033;
+    padding: 25px 0 20px;
+}
+
+footer small {
+    color: #ddd;
+    font-size: 0.9em;
+}
+
+footer small .footer-heart {
+    font-size: 16px;
+}
+
+footer small a {
+    color: #007BDC;
+}
+
+footer ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 12px;
+}
+
+footer ul li a {
+    color: #ddd;
+    font-size: 0.8em;
+}
+/* end: footer styles */
