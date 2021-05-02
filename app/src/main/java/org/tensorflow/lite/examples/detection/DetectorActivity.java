@@ -17,6 +17,8 @@
 package org.tensorflow.lite.examples.detection;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -100,7 +102,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
 
   FusedLocationProviderClient fusedLocationProviderClient;
-
+  boolean active=true;
 
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {
@@ -228,7 +230,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
                 result.setLocation(location);
                 mappedRecognitions.add(result);
-                if(result.getTitle().equals("cup")){
+                if(result.getTitle().equals("cup")&& active==true){
+                  active=false;
                   fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(DetectorActivity.this);
                   if(ActivityCompat.checkSelfPermission(DetectorActivity.this
                           , Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
@@ -273,7 +276,27 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
               List<Address> addresses = geocoder.getFromLocation(
                       location.getLatitude(),location.getLongitude(),1
               );
-              Toast.makeText(DetectorActivity.this, "Latitute :"+addresses.get(0).getLatitude()+"\nLongitude :"+addresses.get(0).getLongitude()+"\nCountry :"+addresses.get(0).getCountryName()+"\nLocality :"+addresses.get(0).getLocality()+"\nPostal Code :"+addresses.get(0).getPostalCode(), Toast.LENGTH_SHORT).show();
+             // Toast.makeText(DetectorActivity.this, "Latitute :"+addresses.get(0).getLatitude()+"\nLongitude :"+addresses.get(0).getLongitude()+"\nCountry :"+addresses.get(0).getCountryName()+"\nLocality :"+addresses.get(0).getLocality()+"\nPostal Code :"+addresses.get(0).getPostalCode(), Toast.LENGTH_SHORT).show();
+              AlertDialog.Builder dialog=new AlertDialog.Builder(DetectorActivity.this);
+              dialog.setMessage("Cup Detected"+"\nLatitute :"+addresses.get(0).getLatitude()+"\nLongitude :"+addresses.get(0).getLongitude()+"\nCountry :"+addresses.get(0).getCountryName()+"\nLocality :"+addresses.get(0).getLocality()+"\nPostal Code :"+addresses.get(0).getPostalCode());
+              dialog.setTitle("GarbClean");
+              dialog.setPositiveButton("Send Location",
+                      new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                            int which) {
+                          Toast.makeText(getApplicationContext(),"Location Sent",Toast.LENGTH_LONG).show();
+                          active=true;
+                        }
+                      });
+              dialog.setNegativeButton("cancel",new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                        active=true;
+                }
+              });
+              AlertDialog alertDialog=dialog.create();
+              alertDialog.show();
             } catch (IOException e) {
               e.printStackTrace();
             }
